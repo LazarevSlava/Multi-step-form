@@ -11,4 +11,8 @@ export default [
       'prettier/prettier': 'error',
     },
   },
+  {
+    files: ['src/**/*.{js,jsx,ts,tsx}'],
+    ignores: [],
+  },
 ];
