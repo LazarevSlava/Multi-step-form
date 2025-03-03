@@ -1,8 +1,10 @@
+@use '../utils/vars' as *;
+
 * {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: 'Rubik', sans-serif;
-    font-family: $mainFont;
+  font-family: 'Rubik', sans-serif;
+  font-family: $mainFont;
 }

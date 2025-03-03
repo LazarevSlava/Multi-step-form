@@ -1,0 +1,7 @@
+@use '../components/utils/index.scss' as *;
+
+.mainBlock {
+  width: 100%;
+  height: 65vh;
+  background-color: $magnolia;
+}

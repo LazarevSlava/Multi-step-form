@@ -1,0 +1,32 @@
+// Mixin для центрирования элемента
+@mixin center($x: 50%, $y: 50%) {
+  position: absolute;
+  top: $y;
+  left: $x;
+  transform: translate(-$x, -$y);
+}
+
+// Mixin для создания гибкой тени
+@mixin box-shadow($x: 0, $y: 4px, $blur: 6px, $color: rgba(0, 0, 0, 0.1)) {
+  box-shadow: $x $y $blur $color;
+}
+
+// Mixin для задания градиента
+@mixin gradient($from, $to) {
+  background: linear-gradient(to right, $from, $to);
+}
+
+// Mixin для создания круглых углов
+@mixin border-radius($radius: 10px) {
+  border-radius: $radius;
+}
+
+// Mixin для переходов
+@mixin transition($property, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Mixin для добавления обводки
+@mixin border($color, $width: 1px) {
+  border: $width solid $color;
+}
