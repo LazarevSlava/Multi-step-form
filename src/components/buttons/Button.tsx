@@ -7,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   customClass?: string;
 }
 
-function Button({ children, customClass = '', ...props }: ButtonProps) {
+const Button = ({ children, customClass = '', ...props }: ButtonProps) => {
   return (
     <button
       className={clsx(style.button, customClass && style[customClass])}
@@ -16,6 +16,6 @@ function Button({ children, customClass = '', ...props }: ButtonProps) {
       {children}
     </button>
   );
-}
+};
 
 export default Button;
