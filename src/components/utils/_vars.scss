@@ -15,7 +15,7 @@ $alabaster: hsl(231, 100%, 99%);
 $white: hsl(0, 0%, 100%);
 
 // Typography
-$fontSizeBase: 16px;
+$fontSizeBase: 1rem;
 $mainFont: 'Ubuntu', sans-serif;
 
 // Font weights
@@ -24,5 +24,6 @@ $fontWeightMedium: 500;
 $fontWeightBold: 700;
 
 // Breakpoints
-$mobile: 375px;
-$desktop: 1440px;
+$mobile: 23.4rem;
+$tablet: 48rem;
+$desktop: 90rem;

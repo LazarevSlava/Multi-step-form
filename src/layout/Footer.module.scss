@@ -4,12 +4,16 @@
   width: 100%;
   height: 15vh;
   display: flex;
-  justify-content: space-between;
   padding: 1rem;
   align-items: center;
+  justify-content: flex-end;
+}
+.footerBlock button:first-child:nth-last-child(2) {
+  margin-right: auto;
 }
 
 .goBack {
+  all: unset;
   color: $coolGray;
   font-size: 1.2rem;
   cursor: pointer;

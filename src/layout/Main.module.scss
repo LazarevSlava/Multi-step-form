@@ -1,7 +1,12 @@
 @use '../components/utils/index.scss' as *;
 
 .mainBlock {
-  width: 100%;
-  height: 65vh;
-  background-color: $magnolia;
+  flex: 1;
+  height: 67vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: $tablet) {
+    background-color: $white;
+  }
 }
