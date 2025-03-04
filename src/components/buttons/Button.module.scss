@@ -32,3 +32,13 @@
     background-color: $pastelBlue;
   }
 }
+.goBack {
+  all: unset;
+  color: $coolGray;
+  font-size: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    color: $lightGray;
+    background-color: $white;
+  }
+}

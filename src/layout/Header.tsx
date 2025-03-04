@@ -1,14 +1,16 @@
 import style from './Header.module.scss';
 import { useState } from 'react';
 
+const stepsContent = [
+  { number: 1, title: 'YOUR INFO', description: 'STEP 1' },
+  { number: 2, title: 'SELECT PLAN', description: 'STEP 2' },
+  { number: 3, title: 'ADD-ONS', description: 'STEP 3' },
+  { number: 4, title: 'SUMMARY', description: 'STEP 4' },
+];
+
 export function Header() {
-  const [activeStep, setActiveStep] = useState<number>(1);
-  const stepsContent = [
-    { number: 1, title: 'YOUR INFO', description: 'STEP 1' },
-    { number: 2, title: 'SELECT PLAN', description: 'STEP 2' },
-    { number: 3, title: 'ADD-ONS', description: 'STEP 3' },
-    { number: 4, title: 'SUMMARY', description: 'STEP 4' },
-  ];
+  const [activeStep, setActiveStep] = useState(1);
+
   return (
     <div className={style.headerBlock}>
       {stepsContent.map((step) => (

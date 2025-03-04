@@ -11,9 +11,7 @@ export function Footer() {
     <footer>
       {isLastPage ? (
         <div className={style.footerBlock}>
-          {isCanGoBack ? (
-            <button className={style.goBack}>Go Back</button>
-          ) : null}
+          {isCanGoBack ? <Button customClass={'goBack'}>Go Back</Button> : null}
           <Button customClass={isCompleted ? 'confirm' : ''}>
             {isCompleted ? 'Confirm' : 'Next Step'}
           </Button>

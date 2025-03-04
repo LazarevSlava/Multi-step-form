@@ -11,13 +11,3 @@
 .footerBlock button:first-child:nth-last-child(2) {
   margin-right: auto;
 }
-
-.goBack {
-  all: unset;
-  color: $coolGray;
-  font-size: 1.2rem;
-  cursor: pointer;
-  &:hover {
-    color: $lightGray;
-  }
-}
