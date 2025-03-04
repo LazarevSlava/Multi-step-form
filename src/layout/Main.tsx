@@ -1,5 +1,6 @@
 import style from './Main.module.scss';
 
-export function Main() {
+const Main = () => {
   return <div className={style.mainBlock}></div>;
-}
+};
+export default Main;

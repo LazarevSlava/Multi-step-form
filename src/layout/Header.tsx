@@ -8,7 +8,7 @@ const stepsContent = [
   { number: 4, title: 'SUMMARY', description: 'STEP 4' },
 ];
 
-export function Header() {
+const Header = () => {
   const [activeStep, setActiveStep] = useState(1);
 
   return (
@@ -30,4 +30,5 @@ export function Header() {
       ))}
     </div>
   );
-}
+};
+export default Header;
