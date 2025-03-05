@@ -1,0 +1,67 @@
+@use '../components/utils/index.scss' as *;
+
+.headerBlock {
+  width: 100%;
+  height: 18vh;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  background: url('../assets/images/bg-sidebar-mobile.svg') no-repeat center /
+    cover;
+  @media (min-width: $tablet) {
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: start;
+    gap: 3rem;
+    border-radius: 0.5rem;
+    width: 35%;
+    height: 100vh;
+    background: url('../assets/images/bg-sidebar-desktop.svg') no-repeat
+      center / cover;
+  }
+}
+
+.step {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 0.125rem solid $white;
+  color: $white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &.active {
+    background-color: $lightBlue;
+    color: $marineBlue;
+    border-color: $lightBlue;
+  }
+}
+.contentWrapper {
+  display: none;
+
+  @media (min-width: $tablet) {
+    p {
+      color: $coolGray;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+    display: flex;
+    flex-direction: column;
+
+    color: $white;
+    gap: 0.5rem;
+  }
+}
+.stepContainer {
+  display: flex;
+
+  @media (min-width: $tablet) {
+    gap: 1rem;
+  }
+}

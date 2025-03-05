@@ -1,4 +1,4 @@
-@import './fonts';
-@import './vars';
-@import './reset';
-@import './mixins';
+@forward './vars';
+@forward './mixins';
+@forward './reset';
+@forward './fonts';

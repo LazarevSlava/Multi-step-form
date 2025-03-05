@@ -1,0 +1,13 @@
+@use '../components/utils/index.scss' as *;
+
+.footerBlock {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footerBlock button:first-child:nth-last-child(2) {
+  margin-right: auto;
+}

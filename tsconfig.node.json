@@ -6,6 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "incremental": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Bundler mode */
     "moduleResolution": "node",
@@ -17,7 +18,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["vite.config.ts", "src"]
 }
