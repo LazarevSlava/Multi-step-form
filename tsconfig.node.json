@@ -14,8 +14,8 @@
     "moduleDetection": "force",
     "noEmit": true,
 
-     /* JSX Support */
-     "jsx": "react-jsx",
+    /* JSX Support */
+    "jsx": "react-jsx",
 
     /* Linting */
     "strict": true,
