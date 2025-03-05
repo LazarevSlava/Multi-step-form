@@ -2,7 +2,7 @@ import Footer from './layout/Footer';
 import Main from './layout/Main';
 import Header from './layout/Header';
 import style from './App.module.scss';
-import { FormProvider } from './contextData/FormContext';
+import { FormProvider } from './contextData/FormProvider';
 import {
   BrowserRouter as Router,
   Routes,

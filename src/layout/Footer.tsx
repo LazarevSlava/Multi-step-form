@@ -1,6 +1,6 @@
 import style from './Footer.module.scss';
 import Button from '../components/buttons/Button';
-import { useFormContext } from '../contextData/FormContext';
+import { useFormContext } from '../components/hooks/useFormContext';
 import { useStepNavigation } from '../components/hooks/useStepNavigation';
 import { isStep1Complete } from '../utils/validation';
 

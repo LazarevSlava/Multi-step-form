@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useFormContext } from '../contextData/FormContext';
+import { useFormContext } from '../components/hooks/useFormContext';
 import style from './Step1.module.scss';
 import {
   validateName,

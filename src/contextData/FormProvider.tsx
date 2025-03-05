@@ -1,15 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { useState } from 'react';
+import { FormContext } from './FormContext';
 import { FormData, defaultFormData } from './formTypes';
-
-const FormContext = createContext<{
-  formData: FormData;
-  setFormData: (data: Partial<FormData>) => void;
-}>({
-  formData: defaultFormData,
-  setFormData: () => {},
-});
-
-export const useFormContext = () => useContext(FormContext);
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const [formData, setFormDataState] = useState<FormData>(defaultFormData);
