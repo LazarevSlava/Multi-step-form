@@ -8,8 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "ESLINT_USE_FLAT_CONFIG=true npx eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext js,jsx,ts,tsx --fix",
+    "prettier:fix": "prettier --write 'src/**/*.{js,ts,tsx,json,md,scss,css}'",
     "preview": "vite preview",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "format": "npm run prettier:fix && npm run lint:fix"
   },
   "husky": {
     "hooks": {

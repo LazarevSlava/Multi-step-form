@@ -1,5 +1,5 @@
-import { useFormContext } from '../contextData/FormContext';
-import { useNavigate } from 'react-router-dom';
+// import { useFormContext } from '../contextData/FormContext';
+// import { useNavigate } from 'react-router-dom';
 
 const Step2 = () => {
   //   const { formData, setFormData } = useFormContext();

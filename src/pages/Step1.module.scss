@@ -11,6 +11,12 @@
   background: $white;
   border-radius: 0.5rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  @media (min-width: $tablet) {
+    margin-top: 0;
+    width: 100%;
+    box-shadow: none;
+    gap: 2rem;
+  }
 }
 
 .title {
@@ -33,6 +39,9 @@
   flex-direction: column;
   gap: 1.2rem;
   position: relative;
+  @media (min-width: $tablet) {
+    gap: 3rem;
+  }
 }
 
 .inputGroup {
