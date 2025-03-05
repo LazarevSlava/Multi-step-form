@@ -1,12 +1,7 @@
-import Step1 from '../pages/Step1';
 import style from './Main.module.scss';
 
 const Main = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className={style.mainBlock}>
-      <Step1 />
-    </div>
-  );
+  return <div className={style.mainBlock}>{children}</div>;
 };
 
 export default Main;

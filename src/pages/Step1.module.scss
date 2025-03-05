@@ -33,15 +33,6 @@
   flex-direction: column;
   gap: 1.2rem;
   position: relative;
-
-  .error {
-    color: $strawberryRed;
-    font-size: 0.9rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 }
 
 .inputGroup {
@@ -71,7 +62,17 @@ input {
     outline: none;
     border-color: $purplishBlue;
   }
-  &:error {
+  &.errorInput {
     border-color: $strawberryRed;
   }
+}
+.errorText {
+  color: $strawberryRed;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.labelError {
+  display: flex;
+  justify-content: space-between;
 }

@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className={style.headerBlock}>
       {stepsContent.map((step) => (
-        <div className={style.stepContainer}>
+        <div key={step.number} className={style.stepContainer}>
           <div
             key={step.number}
             className={`${style.step} ${activeStep === step.number ? style.active : ''}`}
