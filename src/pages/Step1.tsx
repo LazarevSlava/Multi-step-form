@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useFormContext } from '../contextData/FormContext';
 import style from './Step1.module.scss';
+import {
+  validateName,
+  validateEmail,
+  validatePhone,
+} from '../utils/validation';
 
 const Step1 = () => {
   const { formData, setFormData } = useFormContext();
@@ -10,23 +15,15 @@ const Step1 = () => {
     phone?: string;
   }>({});
 
-  const validateName = (value: string) => {
-    let error = '';
-    if (!value.trim()) {
-      error = 'This field is required';
-    } else if (value.trim().length < 2) {
-      error = 'Name should be at least 2 characters long';
-    }
-    setErrors((prev) => ({ ...prev, name: error }));
-  };
-  const validateEmail = (value: string) => {
-    let error = '';
-    if (!value.trim()) {
-      error = 'This field is required';
-    } else if (!/^\S+@\S+\.\S+$/.test(value)) {
-      error = 'Invalid email format';
-    }
-    setErrors((prev) => ({ ...prev, email: error }));
+  const handleValidation = (
+    field: 'name' | 'email' | 'phone',
+    value: string,
+  ) => {
+    let errorMessage = '';
+    if (field === 'name') errorMessage = validateName(value);
+    if (field === 'email') errorMessage = validateEmail(value);
+    if (field === 'phone') errorMessage = validatePhone(value);
+    setErrors((prev) => ({ ...prev, [field]: errorMessage }));
   };
 
   return (
@@ -50,7 +47,7 @@ const Step1 = () => {
             value={formData.name}
             onChange={(e) => {
               setFormData({ name: e.target.value });
-              validateName(e.target.value);
+              handleValidation('name', e.target.value);
             }}
             placeholder="e.g. Stephen King"
             className={errors.name ? style.errorInput : ''}
@@ -71,21 +68,29 @@ const Step1 = () => {
             value={formData.email}
             onChange={(e) => {
               setFormData({ email: e.target.value });
-              validateEmail(e.target.value);
+              handleValidation('email', e.target.value);
             }}
             placeholder="e.g. stephenking@lorem.com"
             required
           />
         </div>
-
         <div className={style.inputGroup}>
-          <label htmlFor="phone">Phone Number</label>
+          <div className={style.labelError}>
+            <label htmlFor="phone">Phone Number</label>
+            {errors.phone && (
+              <span className={style.errorText}>{errors.phone}</span>
+            )}
+          </div>
           <input
             id="phone"
             type="tel"
             value={formData.phone}
-            onChange={(e) => setFormData({ phone: e.target.value })}
+            onChange={(e) => {
+              setFormData({ phone: e.target.value });
+              handleValidation('phone', e.target.value);
+            }}
             placeholder="e.g. +1 234 567 890"
+            className={errors.phone ? style.errorInput : ''}
             required
           />
         </div>

@@ -1,35 +1,28 @@
 import style from './Footer.module.scss';
 import Button from '../components/buttons/Button';
-import { useState } from 'react';
 import { useFormContext } from '../contextData/FormContext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useStepNavigation } from '../components/hooks/useStepNavigation';
+import { isStep1Complete } from '../utils/validation';
 
 const Footer = () => {
   const { formData } = useFormContext();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { currentPage, isCanGoBack, isLastPage, handleNextStep, handleGoBack } =
+    useStepNavigation();
 
-  const currentPage = Number(location.pathname.split('/step')[1]);
-  const isCanGoBack = currentPage > 1;
-  const isLastPage = currentPage > 4;
-
-  const isStep1Complete =
-    formData.name.trim() && formData.email.trim() && formData.phone.trim();
-
-  const handleNextStep = () => {
-    if (currentPage >= 1 && currentPage < 4) {
-      navigate(`/step${currentPage + 1}`);
-    }
-  };
+  const isFormValid = isStep1Complete(formData);
 
   return (
     <footer>
       {!isLastPage ? (
         <div className={style.footerBlock}>
-          {isCanGoBack ? <Button customClass="goBack">Go Back</Button> : null}
+          {isCanGoBack && (
+            <Button onClick={handleGoBack} customClass="goBack">
+              Go Back
+            </Button>
+          )}
           <Button
             onClick={handleNextStep}
-            disabled={!isStep1Complete}
+            disabled={currentPage === 1 && !isFormValid}
             customClass={currentPage === 4 ? 'confirm' : ''}
           >
             {currentPage === 4 ? 'Confirm' : 'Next Step'}
@@ -39,4 +32,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
