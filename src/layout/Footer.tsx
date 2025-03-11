@@ -11,24 +11,25 @@ const Footer = () => {
 
   const isFormValid = isStep1Complete(formData);
 
+  if (isLastPage) {
+    return null;
+  }
   return (
     <footer>
-      {!isLastPage ? (
-        <div className={style.footerBlock}>
-          {isCanGoBack && (
-            <Button onClick={handleGoBack} customClass="goBack">
-              Go Back
-            </Button>
-          )}
-          <Button
-            onClick={handleNextStep}
-            disabled={currentPage === 1 && !isFormValid}
-            customClass={currentPage === 4 ? 'confirm' : ''}
-          >
-            {currentPage === 4 ? 'Confirm' : 'Next Step'}
+      <div className={style.footerBlock}>
+        {isCanGoBack && (
+          <Button onClick={handleGoBack} customClass="goBack">
+            Go Back
           </Button>
-        </div>
-      ) : null}
+        )}
+        <Button
+          onClick={handleNextStep}
+          disabled={currentPage === 1 && !isFormValid}
+          customClass={currentPage === 4 ? 'confirm' : ''}
+        >
+          {currentPage === 4 ? 'Confirm' : 'Next Step'}
+        </Button>
+      </div>
     </footer>
   );
 };
