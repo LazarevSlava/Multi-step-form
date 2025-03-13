@@ -1,0 +1,87 @@
+@use '../components/utils/index.scss' as *;
+
+.stepContainer {
+  margin-top: -10rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 90%;
+  padding: 3rem;
+  background: $white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  @media (min-width: $tablet) {
+    margin-top: 0;
+    width: 100%;
+    box-shadow: none;
+    gap: 2rem;
+  }
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: $marineBlue;
+}
+
+.description {
+  font-size: 1.6rem;
+  color: $coolGray;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  @media (min-width: $tablet) {
+    gap: 3rem;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.4rem;
+  color: $marineBlue;
+  margin-bottom: 0.2rem;
+}
+
+input {
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 0.1rem solid $coolGray;
+  border-radius: 0.4rem;
+  color: $marineBlue;
+  letter-spacing: 0.07rem;
+  &::placeholder {
+    color: $coolGray;
+    letter-spacing: 0.1rem;
+  }
+  &:focus {
+    outline: none;
+    border-color: $purplishBlue;
+  }
+  &.errorInput {
+    border-color: $strawberryRed;
+  }
+}
+.errorText {
+  color: $strawberryRed;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.labelError {
+  display: flex;
+  justify-content: space-between;
+}

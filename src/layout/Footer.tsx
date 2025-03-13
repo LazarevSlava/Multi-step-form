@@ -1,23 +1,37 @@
 import style from './Footer.module.scss';
 import Button from '../components/buttons/Button';
-import { useState } from 'react';
+import { useFormContext } from '../components/hooks/useFormContext';
+import { useStepNavigation } from '../components/hooks/useStepNavigation';
+import { isStep1Complete } from '../utils/validation';
 
 const Footer = () => {
-  const [isCompleted] = useState(true);
-  const [isCanGoBack] = useState(true);
-  const [isLastPage] = useState(true);
+  const { formData } = useFormContext();
+  const { currentPage, isCanGoBack, isLastPage, handleNextStep, handleGoBack } =
+    useStepNavigation();
 
+  const isFormValid = isStep1Complete(formData);
+
+  if (isLastPage) {
+    return null;
+  }
   return (
     <footer>
-      {isLastPage ? (
-        <div className={style.footerBlock}>
-          {isCanGoBack ? <Button customClass="goBack">Go Back</Button> : null}
-          <Button customClass={isCompleted ? 'confirm' : ''}>
-            {isCompleted ? 'Confirm' : 'Next Step'}
+      <div className={style.footerBlock}>
+        {isCanGoBack && (
+          <Button onClick={handleGoBack} customClass="goBack">
+            Go Back
           </Button>
-        </div>
-      ) : null}
+        )}
+        <Button
+          onClick={handleNextStep}
+          disabled={currentPage === 1 && !isFormValid}
+          customClass={currentPage === 4 ? 'confirm' : ''}
+        >
+          {currentPage === 4 ? 'Confirm' : 'Next Step'}
+        </Button>
+      </div>
     </footer>
   );
 };
+
 export default Footer;

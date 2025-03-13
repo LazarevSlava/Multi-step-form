@@ -1,5 +1,5 @@
 import style from './Header.module.scss';
-import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const stepsContent = [
   { number: 1, title: 'YOUR INFO', description: 'STEP 1' },
@@ -9,16 +9,17 @@ const stepsContent = [
 ];
 
 const Header = () => {
-  const [activeStep, setActiveStep] = useState(1);
+  const location = useLocation();
+
+  const currentPage = Number(location.pathname.split('/step')[1]);
 
   return (
     <div className={style.headerBlock}>
       {stepsContent.map((step) => (
-        <div className={style.stepContainer}>
+        <div key={step.number} className={style.stepContainer}>
           <div
             key={step.number}
-            className={`${style.step} ${activeStep === step.number ? style.active : ''}`}
-            onClick={() => setActiveStep(step.number)}
+            className={`${style.step} ${currentPage === step.number ? style.active : ''}`}
           >
             {step.number}
           </div>

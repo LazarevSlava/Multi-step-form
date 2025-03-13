@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $magnolia;
   @media (min-width: $tablet) {
     background-color: $white;
   }
