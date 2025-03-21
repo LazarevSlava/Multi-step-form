@@ -5,6 +5,13 @@ import style from './Step2.module.scss';
 
 const Step2 = () => {
   const [selectedPlan, setSelectedPlan] = useState('arcade');
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>(
+    'monthly',
+  );
+
+  const toggleBilling = () => {
+    setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly');
+  };
 
   return (
     <div className={style.container}>
@@ -16,27 +23,47 @@ const Step2 = () => {
         <PlanOption
           name="Arcade"
           value="arcade"
-          price="$9/mo"
+          price={billingPeriod === 'yearly' ? '$90/yr' : '$9/mo'}
           icon="arcade"
           selected={selectedPlan === 'arcade'}
+          isYearly={billingPeriod === 'yearly'}
           onChange={setSelectedPlan}
         />
         <PlanOption
           name="Advanced"
           value="advanced"
-          price="$12/mo"
+          price={billingPeriod === 'yearly' ? '$120/yr' : '$12/mo'}
           icon="advanced"
           selected={selectedPlan === 'advanced'}
+          isYearly={billingPeriod === 'yearly'}
           onChange={setSelectedPlan}
         />
         <PlanOption
           name="Pro"
           value="pro"
-          price="$15/mo"
+          price={billingPeriod === 'yearly' ? '$150/yr' : '$15/mo'}
           icon="pro"
           selected={selectedPlan === 'pro'}
+          isYearly={billingPeriod === 'yearly'}
           onChange={setSelectedPlan}
         />
+      </div>
+
+      <div className={style.billingToggle}>
+        <span className={billingPeriod === 'monthly' ? style.active : ''}>
+          Monthly
+        </span>
+        <label className={style.switch}>
+          <input
+            type="checkbox"
+            checked={billingPeriod === 'yearly'}
+            onChange={toggleBilling}
+          />
+          <span className={style.slider}></span>
+        </label>
+        <span className={billingPeriod === 'yearly' ? style.active : ''}>
+          Yearly
+        </span>
       </div>
     </div>
   );

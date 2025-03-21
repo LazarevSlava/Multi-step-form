@@ -9,6 +9,7 @@ type PlanOptionProps = {
   price: string;
   icon: 'arcade' | 'advanced' | 'pro';
   selected: boolean;
+  isYearly: boolean;
   onChange: (value: string) => void;
 };
 
@@ -24,6 +25,7 @@ const PlanOption: React.FC<PlanOptionProps> = ({
   price,
   icon,
   selected,
+  isYearly,
   onChange,
 }) => {
   return (
@@ -39,6 +41,7 @@ const PlanOption: React.FC<PlanOptionProps> = ({
       <div className={style.name_price}>
         <span className={style.title}>{name}</span>
         <span className={style.price}>{price}</span>
+        {isYearly && <span className={style.discount}>2 months free</span>}
       </div>
     </label>
   );
