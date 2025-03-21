@@ -1,0 +1,46 @@
+@use '../utils/index.scss' as *;
+
+.plan {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 0.1rem solid $lightGray;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  input {
+    display: none;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    color: $marineBlue;
+    font-weight: $fontWeightMedium;
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 0.875rem;
+    color: $coolGray;
+  }
+
+  .name_price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &:hover {
+    border-color: $purplishBlue;
+  }
+
+  &.selected {
+    border-color: $purplishBlue;
+    background-color: rgba(0, 123, 255, 0.1);
+  }
+}
