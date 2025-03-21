@@ -4,14 +4,9 @@ import { useFormContext } from '../components/hooks/useFormContext';
 import style from './Step2.module.scss';
 
 const Step2 = () => {
+  const { formData, toggleBilling } = useFormContext();
+  const { billingPeriod } = formData;
   const [selectedPlan, setSelectedPlan] = useState('arcade');
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>(
-    'monthly',
-  );
-
-  const toggleBilling = () => {
-    setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly');
-  };
 
   return (
     <div className={style.container}>
