@@ -1,4 +1,4 @@
-export type BillingPeriod = "monthly" | "yearly";
+export type BillingPeriod = 'monthly' | 'yearly';
 
 export interface FormData {
   name: string;
@@ -13,9 +13,7 @@ export const defaultFormData: FormData = {
   name: '',
   email: '',
   phone: '',
-  plan: '',
+  plan: 'arcade',
   addons: [],
-  billingPeriod: "monthly",
+  billingPeriod: 'monthly',
 };
-
-

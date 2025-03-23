@@ -1,12 +1,15 @@
-import { useState } from 'react';
 import PlanOption from '../components/buttons/PlanOption';
 import { useFormContext } from '../components/hooks/useFormContext';
 import style from './Step2.module.scss';
+import { plans } from '../data/plans';
 
 const Step2 = () => {
-  const { formData, toggleBilling } = useFormContext();
-  const { billingPeriod } = formData;
-  const [selectedPlan, setSelectedPlan] = useState('arcade');
+  const { formData, toggleBilling, setFormData } = useFormContext();
+  const { billingPeriod, plan: selectedPlan } = formData;
+
+  const handlePlanChange = (value: string) => {
+    setFormData({ plan: value });
+  };
 
   return (
     <div className={style.container}>
@@ -14,34 +17,20 @@ const Step2 = () => {
       <p className={style.explanation}>
         You have the option of monthly or yearly billing
       </p>
+
       <div className={style.plans}>
-        <PlanOption
-          name="Arcade"
-          value="arcade"
-          price={billingPeriod === 'yearly' ? '$90/yr' : '$9/mo'}
-          icon="arcade"
-          selected={selectedPlan === 'arcade'}
-          isYearly={billingPeriod === 'yearly'}
-          onChange={setSelectedPlan}
-        />
-        <PlanOption
-          name="Advanced"
-          value="advanced"
-          price={billingPeriod === 'yearly' ? '$120/yr' : '$12/mo'}
-          icon="advanced"
-          selected={selectedPlan === 'advanced'}
-          isYearly={billingPeriod === 'yearly'}
-          onChange={setSelectedPlan}
-        />
-        <PlanOption
-          name="Pro"
-          value="pro"
-          price={billingPeriod === 'yearly' ? '$150/yr' : '$15/mo'}
-          icon="pro"
-          selected={selectedPlan === 'pro'}
-          isYearly={billingPeriod === 'yearly'}
-          onChange={setSelectedPlan}
-        />
+        {plans.map((plan) => (
+          <PlanOption
+            key={plan.value}
+            name={plan.name}
+            value={plan.value}
+            price={billingPeriod === 'yearly' ? plan.yearly : plan.monthly}
+            icon={plan.icon}
+            selected={selectedPlan === plan.value}
+            isYearly={billingPeriod === 'yearly'}
+            onChange={handlePlanChange}
+          />
+        ))}
       </div>
 
       <div className={style.billingToggle}>
@@ -54,7 +43,7 @@ const Step2 = () => {
             checked={billingPeriod === 'yearly'}
             onChange={toggleBilling}
           />
-          <span className={style.slider}></span>
+          <span className={style.slider} />
         </label>
         <span className={billingPeriod === 'yearly' ? style.active : ''}>
           Yearly
