@@ -63,14 +63,12 @@ const PlanOption: React.FC<PlanOptionProps> = ({
           <span className={style.title}>{name}</span>
           {variant === 'step3' ? (
             <span className={style.textSecondary}>{description}</span>
-          ) : (
-            ''
-          )}
+          ) : null}
         </div>
         <span className={style.textSecondary}>{price}</span>
         {variant !== 'step3'
           ? isYearly && <span className={style.discount}>2 months free</span>
-          : ''}
+          : null}
       </div>
     </label>
   );

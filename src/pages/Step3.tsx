@@ -1,5 +1,6 @@
 import PlanOption from '../components/buttons/PlanOption';
 import { useFormContext } from '../components/hooks/useFormContext';
+import StepContainer from './StepContainer';
 import style from './Step3.module.scss';
 import { addons } from '../data/addons';
 
@@ -14,12 +15,12 @@ const Step3 = () => {
 
     setFormData({ addons: updated });
   };
+
   return (
-    <div className={style.container}>
-      <h2 className={style.select}>Pick add-ons</h2>
-      <p className={style.explanation}>
-        Add-ons help enhance your gaming experience.
-      </p>
+    <StepContainer
+      title="Pick add-ons"
+      description="Add-ons help enhance your gaming experience."
+    >
       <div className={style.plans}>
         {addons.map((addon) => (
           <PlanOption
@@ -36,7 +37,7 @@ const Step3 = () => {
           />
         ))}
       </div>
-    </div>
+    </StepContainer>
   );
 };
 

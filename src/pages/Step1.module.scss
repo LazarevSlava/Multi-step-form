@@ -1,39 +1,5 @@
 @use '../components/utils/index.scss' as *;
 
-.stepContainer {
-  margin-top: -10rem;
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  width: 90%;
-  padding: 3rem;
-  background: $white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-  @media (min-width: $tablet) {
-    margin-top: 0;
-    width: 100%;
-    box-shadow: none;
-    gap: 2rem;
-  }
-}
-
-.title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: $marineBlue;
-}
-
-.description {
-  font-size: 1.6rem;
-  color: $coolGray;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
 .form {
   width: 100%;
   display: flex;

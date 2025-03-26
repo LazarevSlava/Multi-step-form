@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useFormContext } from '../components/hooks/useFormContext';
-import style from './Step1.module.scss';
+import StepContainer from './StepContainer';
 import {
   validateName,
   validateEmail,
   validatePhone,
 } from '../utils/validation';
+import style from './Step1.module.scss';
 
 const Step1 = () => {
   const { formData, setFormData } = useFormContext();
@@ -27,12 +28,10 @@ const Step1 = () => {
   };
 
   return (
-    <div className={style.stepContainer}>
-      <h2 className={style.title}>Personal info</h2>
-      <p className={style.description}>
-        Please provide your name, email address, and phone number.
-      </p>
-
+    <StepContainer
+      title="Personal info"
+      description="Please provide your name, email address, and phone number."
+    >
       <form className={style.form}>
         <div className={style.inputGroup}>
           <div className={style.labelError}>
@@ -74,6 +73,7 @@ const Step1 = () => {
             required
           />
         </div>
+
         <div className={style.inputGroup}>
           <div className={style.labelError}>
             <label htmlFor="phone">Phone Number</label>
@@ -95,7 +95,7 @@ const Step1 = () => {
           />
         </div>
       </form>
-    </div>
+    </StepContainer>
   );
 };
 

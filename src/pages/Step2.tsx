@@ -1,5 +1,6 @@
 import PlanOption from '../components/buttons/PlanOption';
 import { useFormContext } from '../components/hooks/useFormContext';
+import StepContainer from './StepContainer';
 import style from './Step2.module.scss';
 import { plans } from '../data/plans';
 
@@ -12,12 +13,10 @@ const Step2 = () => {
   };
 
   return (
-    <div className={style.container}>
-      <h2 className={style.select}>Select your plan</h2>
-      <p className={style.explanation}>
-        You have the option of monthly or yearly billing
-      </p>
-
+    <StepContainer
+      title="Select your plan"
+      description="You have the option of monthly or yearly billing"
+    >
       <div className={style.plans}>
         {plans.map((plan) => (
           <PlanOption
@@ -49,7 +48,7 @@ const Step2 = () => {
           Yearly
         </span>
       </div>
-    </div>
+    </StepContainer>
   );
 };
 

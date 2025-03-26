@@ -11,7 +11,6 @@
     "prettier:fix": "prettier --write 'src/**/*.{js,ts,tsx,json,md,scss,css}'",
     "preview": "vite preview",
     "prettier:check": "prettier --check .",
-    "format": "npm run prettier:fix && npm run lint:fix",
     "prettier": "prettier --write ."
   },
   "husky": {
