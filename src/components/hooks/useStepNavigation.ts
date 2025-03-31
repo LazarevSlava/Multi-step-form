@@ -5,11 +5,11 @@ export const useStepNavigation = () => {
   const navigate = useNavigate();
 
   const currentPage = Number(location.pathname.split('/step')[1]) || 1;
-  const isCanGoBack = currentPage > 1 && currentPage <= 4;
-  const isLastPage = currentPage > 4;
+  const isCanGoBack = currentPage > 1 && currentPage < 5;
+  const isLastPage = currentPage >= 5;
 
   const handleNextStep = () => {
-    if (currentPage < 4) {
+    if (currentPage < 5) {
       navigate(`/step${currentPage + 1}`);
     }
   };

@@ -11,7 +11,8 @@ const stepsContent = [
 const Header = () => {
   const location = useLocation();
 
-  const currentPage = Number(location.pathname.split('/step')[1]);
+  const stepNumber = Number(location.pathname.split('/step')[1]);
+  const currentPage = stepNumber > 4 ? 4 : stepNumber;
 
   return (
     <div className={style.headerBlock}>

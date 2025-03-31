@@ -1,10 +1,6 @@
-// import { useFormContext } from '../contextData/FormContext';
-// import { useNavigate } from 'react-router-dom';
+import style from './Step4.module.scss';
 
 const Step4 = () => {
-  //   const { formData, setFormData } = useFormContext();
-  //   const navigate = useNavigate();
-
   return <div />;
 };
 
