@@ -12,7 +12,7 @@ type PlanOptionProps = {
   isYearly: boolean;
   onChange: (value: string) => void;
   description?: string;
-  variant?: 'step2' | 'step3';
+  variant?: 'step2' | 'step3' | 'step4';
 };
 
 const iconMap = {
@@ -35,7 +35,11 @@ const PlanOption: React.FC<PlanOptionProps> = ({
   return (
     <label
       className={`${style.plan} ${selected ? style.selected : ''} ${
-        variant === 'step3' ? style.step3 : ''
+        variant === 'step3'
+          ? style.step3
+          : variant === 'step4'
+            ? style.step4
+            : ''
       }`}
     >
       {variant === 'step3' ? (
@@ -56,19 +60,23 @@ const PlanOption: React.FC<PlanOptionProps> = ({
       {icon !== 'none' && <span className={style.icon}>{iconMap[icon]}</span>}
       <div
         className={`${style.name_price} ${
-          variant === 'step3' ? style.step3Div : ''
+          variant === 'step3'
+            ? style.step3Div
+            : variant === 'step4'
+              ? style.step4Div
+              : ''
         }`}
       >
         <div className={style.titleBlock}>
           <span className={style.title}>{name}</span>
-          {variant === 'step3' ? (
+          {variant === 'step3' && description && (
             <span className={style.textSecondary}>{description}</span>
-          ) : null}
+          )}
         </div>
         <span className={style.textSecondary}>{price}</span>
-        {variant !== 'step3'
-          ? isYearly && <span className={style.discount}>2 months free</span>
-          : null}
+        {variant === 'step2' && isYearly && (
+          <span className={style.discount}>2 months free</span>
+        )}
       </div>
     </label>
   );
