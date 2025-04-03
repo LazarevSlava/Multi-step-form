@@ -1,7 +1,7 @@
 import style from './Step5.module.scss';
 import ThankYouIcon from '../assets/images/icon-thank-you.svg?react';
 
-const Step4 = () => {
+const Step5 = () => {
   return (
     <div className={style.container}>
       <ThankYouIcon className={style.icon} />
@@ -15,4 +15,4 @@ const Step4 = () => {
   );
 };
 
-export default Step4;
+export default Step5;
