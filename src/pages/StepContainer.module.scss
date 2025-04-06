@@ -20,6 +20,18 @@
   }
 }
 
+.centered {
+  align-items: center;
+
+  text-align: center;
+  padding: 7rem 3rem;
+
+  .title,
+  .description {
+    text-align: center;
+  }
+}
+
 .title {
   font-size: 2.2rem;
   font-weight: bold;
@@ -32,4 +44,10 @@
   color: $coolGray;
   margin-bottom: 1.5rem;
   line-height: 1.6;
+}
+
+.icon {
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1.5rem;
 }

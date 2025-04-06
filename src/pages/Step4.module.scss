@@ -1,0 +1,86 @@
+@use '../components/utils/index.scss' as *;
+
+.summaryBox {
+  background-color: $alabaster;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.planRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: $marineBlue;
+  font-size: 1.2rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+.changeLink {
+  font-size: 1rem;
+  text-align: start;
+  color: $coolGray;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.price {
+  font-weight: bold;
+  color: $marineBlue;
+}
+
+.divider {
+  height: 1px;
+  background-color: $lightGray;
+  margin: 1rem 0;
+}
+
+.addonRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+
+  span {
+    font-size: 1.2rem;
+    color: $coolGray;
+  }
+
+  .price {
+    color: $marineBlue;
+  }
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  background-color: $white;
+  border-radius: 0.5rem;
+
+  &Text {
+    font-size: 1.2rem;
+    color: $coolGray;
+  }
+
+  &Sum {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $purplishBlue;
+  }
+}

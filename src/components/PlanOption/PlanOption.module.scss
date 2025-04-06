@@ -18,8 +18,15 @@
     max-height: 15rem;
     gap: 2rem;
   }
-  input {
+  input[type='radio'] {
     display: none;
+  }
+
+  input[type='checkbox'] {
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
   }
 
   .icon {
@@ -72,6 +79,19 @@
     cursor: pointer;
   }
   .step3Div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.step4 {
+  input {
+    display: none;
+  }
+
+  .step4Div {
     width: 100%;
     display: flex;
     flex-direction: row;

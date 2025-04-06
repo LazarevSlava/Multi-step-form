@@ -1,4 +1,11 @@
-import PlanOption from '../components/buttons/PlanOption';
+import {
+  PlanOption,
+  PlanOptionCheckbox,
+  PlanOptionTitle,
+  PlanOptionDescription,
+  PlanOptionPrice,
+  PlanOptionPriceContainer,
+} from '../components/PlanOption';
 import { useFormContext } from '../components/hooks/useFormContext';
 import StepContainer from './StepContainer';
 import style from './Step3.module.scss';
@@ -25,16 +32,19 @@ const Step3 = () => {
         {addons.map((addon) => (
           <PlanOption
             key={addon.value}
-            name={addon.name}
             value={addon.value}
-            description={addon.description}
-            price={billingPeriod === 'yearly' ? addon.yearly : addon.monthly}
-            icon="none"
             selected={selectedAddons.includes(addon.value)}
-            isYearly={billingPeriod === 'yearly'}
             onChange={handleToggle}
-            variant="step3"
-          />
+          >
+            <PlanOptionCheckbox />
+            <PlanOptionPriceContainer>
+              <PlanOptionTitle>{addon.name}</PlanOptionTitle>
+              <PlanOptionDescription>{addon.description}</PlanOptionDescription>
+              <PlanOptionPrice>
+                {billingPeriod === 'yearly' ? addon.yearly : addon.monthly}
+              </PlanOptionPrice>
+            </PlanOptionPriceContainer>
+          </PlanOption>
         ))}
       </div>
     </StepContainer>

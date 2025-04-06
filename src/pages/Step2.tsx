@@ -1,4 +1,12 @@
-import PlanOption from '../components/buttons/PlanOption';
+import {
+  PlanOption,
+  PlanOptionRadio,
+  PlanOptionIcon,
+  PlanOptionTitle,
+  PlanOptionPrice,
+  PlanOptionDiscount,
+  PlanOptionPriceContainer,
+} from '../components/PlanOption';
 import { useFormContext } from '../components/hooks/useFormContext';
 import StepContainer from './StepContainer';
 import style from './Step2.module.scss';
@@ -21,14 +29,24 @@ const Step2 = () => {
         {plans.map((plan) => (
           <PlanOption
             key={plan.value}
-            name={plan.name}
             value={plan.value}
-            price={billingPeriod === 'yearly' ? plan.yearly : plan.monthly}
-            icon={plan.icon}
             selected={selectedPlan === plan.value}
-            isYearly={billingPeriod === 'yearly'}
             onChange={handlePlanChange}
-          />
+          >
+            <PlanOptionRadio />
+            <PlanOptionIcon
+              name={plan.value as 'arcade' | 'advanced' | 'pro'}
+            />
+            <PlanOptionPriceContainer>
+              <PlanOptionTitle>{plan.name}</PlanOptionTitle>
+              <PlanOptionPrice>
+                {billingPeriod === 'yearly' ? plan.yearly : plan.monthly}
+              </PlanOptionPrice>
+              {billingPeriod === 'yearly' && (
+                <PlanOptionDiscount>2 months free</PlanOptionDiscount>
+              )}
+            </PlanOptionPriceContainer>
+          </PlanOption>
         ))}
       </div>
 
