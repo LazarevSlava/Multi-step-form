@@ -21,14 +21,24 @@ const Step2 = () => {
         {plans.map((plan) => (
           <PlanOption
             key={plan.value}
-            name={plan.name}
             value={plan.value}
-            price={billingPeriod === 'yearly' ? plan.yearly : plan.monthly}
-            icon={plan.icon}
-            selected={selectedPlan === plan.value}
-            isYearly={billingPeriod === 'yearly'}
+            selected={selectedPlan === plan.value} // ✅ сравниваем с текущим выбранным
             onChange={handlePlanChange}
-          />
+          >
+            <PlanOption.Radio />
+            <PlanOption.Icon
+              name={plan.value as 'arcade' | 'advanced' | 'pro'}
+            />
+            <PlanOption.PriceContainer>
+              <PlanOption.Title>{plan.name}</PlanOption.Title>
+              <PlanOption.Price>
+                {billingPeriod === 'yearly' ? plan.yearly : plan.monthly}
+              </PlanOption.Price>
+              {billingPeriod === 'yearly' && (
+                <PlanOption.Discount>2 months free</PlanOption.Discount>
+              )}
+            </PlanOption.PriceContainer>
+          </PlanOption>
         ))}
       </div>
 

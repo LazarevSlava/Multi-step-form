@@ -25,16 +25,21 @@ const Step3 = () => {
         {addons.map((addon) => (
           <PlanOption
             key={addon.value}
-            name={addon.name}
             value={addon.value}
-            description={addon.description}
-            price={billingPeriod === 'yearly' ? addon.yearly : addon.monthly}
-            icon="none"
             selected={selectedAddons.includes(addon.value)}
-            isYearly={billingPeriod === 'yearly'}
             onChange={handleToggle}
-            variant="step3"
-          />
+          >
+            <PlanOption.Checkbox />
+            <PlanOption.PriceContainer>
+              <PlanOption.Title>{addon.name}</PlanOption.Title>
+              <PlanOption.Description>
+                {addon.description}
+              </PlanOption.Description>
+              <PlanOption.Price>
+                {billingPeriod === 'yearly' ? addon.yearly : addon.monthly}
+              </PlanOption.Price>
+            </PlanOption.PriceContainer>
+          </PlanOption>
         ))}
       </div>
     </StepContainer>
